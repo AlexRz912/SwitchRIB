@@ -1,6 +1,7 @@
 # Windows Keyboard Input Overview
 
 - This is a brief summary of Keyboard Input handling from the driver to the window receiving user input
+
 **Source:** [Microsoft Docs - About Keyboard Input](https://learn.microsoft.com/en-us/windows/win32/inputdev/about-keyboard-input)
 
 ## Defining Active Windows
