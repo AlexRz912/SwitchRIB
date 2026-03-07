@@ -8,7 +8,7 @@ This is an educational project demonstrating a proof-of-concept malware for Wind
 
 ## Development Approach
 
-My initial approach involved checking if Ctrl+C was pressed. To do this, I took the time to research how Windows handles keyboard input, as documented in [windows_handling_keyboard.md](windows_handling_keyboard.md). However, I could think of a more efficient solution: simply monitoring the clipboard to modify its content if it looked like an IBAN.
+My initial approach involved checking if Ctrl+C was pressed. To do this, I took the time to research how Windows handles keyboard input, as documented in [windows_handling_keyboard.md](windows_handling_keyboard.md). However, as I was reading the docs, I could come up: simply monitoring the clipboard to modify its content if it looked like an IBAN.
 
 
 
