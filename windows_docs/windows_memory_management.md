@@ -65,3 +65,20 @@ To maximize its flexibility in managing memory, the system can move pages of phy
 
 The working set of a process is the set of pages in the virtual address space of the process that are currently resident in physical memory. The working set contains only pageable memory allocations; nonpageable memory allocations such as Address Windowing Extensions (AWE) or large page allocations are not included in the working set.
 
+Page fault :
+
+A Page fault happens when a process tries to reference memory in working set, and it is not yet in the working set
+
+Doesn't happen with non pageable data such as address windowing extension or large page allocation
+
+Can be resolve with page fault handler
+Two types of page fault
+Soft page fault :
+ - Can happen if page is in working set of other processes, already resident in memory
+ - In transition from other processes's working set, not yet repurposed, or already resident as 
+ a result of memory prefetch operation
+ - (Demand zero fault)
+
+Hard page fault :
+ - reading process backing store : System paging file or memory mapped file created by process
+
