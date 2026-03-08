@@ -19,7 +19,6 @@ int main() {
         GlobalUnlock(GetClipboardData(CF_TEXT));
         Sleep(100);
         CloseClipboard();
-        
     }
     return 0;
 }
@@ -35,6 +34,5 @@ int main() {
     // GlobalUnlock ?
     // virtualUnlock
 
-    
 
 
