@@ -2,7 +2,7 @@
 
 ##  Project
 
-This is an educational project demonstrating a proof-of-concept malware for Windows. The malware, once installed on a PC, monitors the clipboard for copied bank account details. If detected, it modifies the clipboard content to replace the original IBAN with a different one, potentially leading to incorrect fund transfers if the user does not verify the bank account details.
+This is an educational project demonstrating a clipboard hijacker malware for Windows. The malware, once installed on a PC, monitors the clipboard for copied bank account details. If detected, it modifies the clipboard content to replace the original IBAN with a different one, potentially leading to incorrect fund transfers if the user does not verify the bank account details.
 
 **Disclaimer:** This project is strictly for educational and research purposes to understand malware behavior and security vulnerabilities. Do not use or distribute this code for malicious intent.
 
